@@ -4,6 +4,8 @@
 総務省 全国地方公共団体コード
 https://www.soumu.go.jp/denshijiti/code.html
 
+2020/4/28時点でダウンロードできるエクセルの形式となっています。
+
 # json format
 ```
 {
@@ -51,6 +53,31 @@ https://www.soumu.go.jp/denshijiti/code.html
 ```
 
 # require
-
+- python3
 
 # how to use
+1. clone & dive
+    ```
+    git clone https://github.com/hysakhr/japan-local-government-code-json.git
+    cd japan-local-government-code-json
+    ```
+
+1. 必要なパッケージのインストール
+    ```
+    pip install -r requirements.txt
+    ```
+
+1. エクセルをダウンロードして、同じディレクトリに配置
+1. 実行
+    ```
+    python convert.py
+    ```
+
+    デフォルトでは、以下のファイルを対象に動作します。
+    - 入力ファイル：000618153.xls
+    - 出力ファイル：pref.json
+
+    入力ファイルと出力ファイルの指定も可能です。
+    ```
+    python convert.py -i [入力ファイル] -o [出力ファイル]
+    ```
