@@ -6,14 +6,24 @@ import pandas as pd
 import jaconv
 
 p = argparse.ArgumentParser()
-p.add_argument('-i', '--input', help='ファイル名', default='000618153.xls')
-p.add_argument('-o', '--output', help='ファイル名', default='pref.json')
+p.add_argument(
+    '-i',
+    '--input',
+    help='input file name',
+    default='000618153.xls')
+p.add_argument('-o', '--output', help='output file name', default='pref.json')
+p.add_argument(
+    '-n',
+    '--nation',
+    help='Whether to include nation data',
+    action='store_true')
 args = p.parse_args()
 
 
 def main():
     input_filename = args.input
     output_filename = args.output
+    with_nation = args.nation
 
     # validation
     if not os.path.exists(input_filename):
@@ -22,6 +32,17 @@ def main():
 
     # 都道府県、市区町村データを格納する変数
     prefs = {}
+
+    # 全国のデータが必要であれば付与
+    if with_nation:
+        prefs['0'] = {
+            "name": "全国",
+            "yomi": "ぜんこく",
+            "yomi_kana": "ゼンコク",
+            "yomi_kana_han": "ｾﾞﾝｺｸ",
+            "cities": {},
+            "seirei": {},
+        }
 
     ##################################################
     #

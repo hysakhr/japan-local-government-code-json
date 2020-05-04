@@ -1,4 +1,12 @@
 {
+  "0": {
+    "name": "全国",
+    "yomi": "ぜんこく",
+    "yomi_kana": "ゼンコク",
+    "yomi_kana_han": "ｾﾞﾝｺｸ",
+    "cities": {},
+    "seirei": {}
+  },
   "1": {
     "name": "北海道",
     "yomi": "ほっかいどう",

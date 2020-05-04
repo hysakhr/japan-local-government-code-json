@@ -81,3 +81,8 @@ https://www.soumu.go.jp/denshijiti/code.html
     ```
     python convert.py -i [入力ファイル] -o [出力ファイル]
     ```
+
+    全国（都道府県コード = 0）のデータを先頭に追加する
+    ```
+    python convert.py -n
+    ```
