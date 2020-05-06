@@ -36,6 +36,7 @@ def main():
     # 全国のデータが必要であれば付与
     if with_nation:
         prefs['0'] = {
+            "code": "0",
             "name": "全国",
             "yomi": "ぜんこく",
             "yomi_kana": "ゼンコク",
@@ -73,6 +74,7 @@ def main():
         if isinstance(row['city_name'], float):
             # 都道府県
             pref = {
+                'code': str(pref_code),
                 'name': row['pref_name'],
                 'yomi': jaconv.kata2hira(jaconv.h2z(row['pref_yomi_kana'])),
                 'yomi_kana': jaconv.h2z(row['pref_yomi_kana']),
@@ -85,6 +87,7 @@ def main():
             # 市区町村
             city_code = int(row['code'])
             city = {
+                'code': str(city_code),
                 'name': row['city_name'],
                 'yomi': jaconv.kata2hira(jaconv.h2z(row['city_yomi_kana'])),
                 'yomi_kana': jaconv.h2z(row['city_yomi_kana']),
@@ -122,6 +125,8 @@ def main():
             # 政令指定都市の区
             city_code = row['code']
             city = {
+                'code': str(city_code),
+                'parent_seirei_code': str(seirei_code),
                 'name': row['city_name'],
                 'yomi': row['city_yomi'],
                 'yomi_kana': jaconv.hira2kata(row['city_yomi']),
