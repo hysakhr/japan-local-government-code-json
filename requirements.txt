@@ -1,4 +1,4 @@
-certifi==2022.12.7
+certifi==2023.7.22
 jaconv==0.2.4
 numpy==1.22.0
 pandas==0.23.3
